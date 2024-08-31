@@ -1,0 +1,72 @@
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next =None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+        
+    def append(self,data):
+        self.insertAtEnd(data)
+            
+    def print_list(self):
+        current_node = self.head
+        while current_node:
+            print(current_node.data)
+            current_node = current_node.next
+            
+    def insertAtBegin(self,data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+        print("Inserted data at Begin:",self.head.data)
+            
+    def insertAtEnd(self,data):
+        new_node = Node(data)
+        if not self.head:
+            self.head= new_node
+        else:
+            current_node = self.head
+            while current_node.next:
+                current_node = current_node.next
+            current_node.next = new_node
+            print(f"Inserted {new_node.data} at End")
+            
+    def find_length(self):
+        length = 0
+        current_node = self.head
+        while current_node:
+            length +=1
+            current_node = current_node.next
+        return length
+            
+    def insertAtPosition(self,data,pos):
+        new_node = Node(data)
+        length = self.find_length()
+        
+        if pos <= 0 or pos > length+1:
+            print("invalid position")
+            return
+       
+        if pos == 1:
+            self.insertAtBegin()
+            return
+            
+        current_node = self.head
+        for i in range (1,pos-1):
+            current_node = current_node.next
+            
+        new_node.next = current_node.next
+        current_node.next=new_node
+        print(f"Inserted {data} at position {pos}")
+        
+node = LinkedList()
+node.append(2)
+node.append(3)
+node.insertAtBegin(1)
+node.insertAtEnd(4)
+node.insertAtPosition(100,2)
+node.print_list()
+count = node.find_length()
+print("Length is ",count)
