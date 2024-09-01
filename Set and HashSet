@@ -1,0 +1,26 @@
+# SET
+print("SET")
+my_set = {1,2,3,4,5}
+print(type(my_set))
+search_element = 30
+if search_element in my_set:
+    print("found element")
+else:
+    print("Not found element")
+
+print("*********************")
+print("HASHSET")
+# HASHSET
+my_hash_set = set()
+my_hash_set.add(1)
+my_hash_set.add(2)
+my_hash_set.add(3)
+my_hash_set.add(4)
+my_hash_set.add(5)
+print(my_hash_set)
+print(type(my_hash_set))
+search_element = 3
+if search_element in my_hash_set:
+    print("found element")
+else:
+    print("Not found element")
